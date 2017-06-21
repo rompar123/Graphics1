@@ -1,5 +1,7 @@
 package com.gmail.rompar123.geometry.edges;
 
+import java.util.ArrayList;
+
 import com.gmail.rompar123.geometry.Point;
 
 public class Line extends Edge {
@@ -9,15 +11,25 @@ public class Line extends Edge {
 	}
 	
 	@Override
-	protected Point[] init(Point p1, Point p2) {
-		Point pMin = p1.compareTo(p2) < 0 ? p1 : p2;
-		Point pMax = pMin.equals(p1) ? p1 : p2;
-		int size = Math.abs(p1.getX() - p2.getX()) +1;
-		Point[] retPoints = new Point[size];
-		int indexOffset = pMin.getX();
-	
+	protected Point[] init(final Point p0, final Point p1) {
+		final int deltaX = p1.getX() - p0.getX();
+		final int deltaY = p1.getY() - p0.getY();
+		final double deltaErr = Math.abs(deltaY / deltaX);
+		double error = deltaErr - 0.5;
+		ArrayList<Point> pointsList = new ArrayList<>(deltaX + 1);
 		
-		return retPoints;
+		int y = p0.getY();
+		for (int x = p0.getX(); x <= p1.getX(); x++){
+			Point p = new Point(x ,y);
+			error += deltaErr;
+			if (error >= 0.5){
+				y += 1;
+				error -= 1;
+			}
+			pointsList.add(p);
+		}
+		
+		return pointsList.toArray(new Point[] {});
 	}
 
 }

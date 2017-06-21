@@ -1,6 +1,6 @@
 package com.gmail.rompar123.geometry;
 
-public class Point implements Comparable<Point>{
+public class Point{
 
 	private int x,y;
 	
@@ -15,22 +15,4 @@ public class Point implements Comparable<Point>{
 	public int getX(){ return x; }
 	public int getY(){ return y; }
 
-	@Override
-	/**
-	 * return the point closer to POSSITIVE_INF, on the X axes ,as the bigger
-	 */
-	public int compareTo(Point p) {
-		return ( this.getX() - p.getX() );
-	}
-	
-	@Override
-	public boolean equals(Object point){
-		if (point instanceof Point){
-			Point p = (Point)point;
-			if (this.getX() == p.getX() && this.getY() == p.getY()){
-				return true;
-			} else {/*default case false*/}
-		} else {/*default case false*/}
-		return false;
-	}
 }

@@ -7,18 +7,21 @@ public abstract class Edge {
 	protected Point[] points;
 	
 	protected Edge(Point p1, Point p2){
-		points = init(p1, p2);
+		Point pmin = p1.getX() < p2.getX() ? p1 : p2;
+		Point pmax = p1.getX() > p2.getX() ? p1 : p2;
+		points = init(pmin, pmax);
 	}
 	
 	/**
-	 * 
-	 * @param p1
-	 * @param p2
 	 * @return - an array of all the points existing on the edge
 	 */
 	protected abstract Point[] init(Point p1, Point p2);
 	
 	public boolean isOnEdge(Point p){
-		return ( points[p.getX()].getY() == p.getY());
+		if ( p.getX() <= points.length -1) { 
+			return ( points[p.getX()].getY() == p.getY());
+		} else {
+			return false;
+		}
 	}
 }
