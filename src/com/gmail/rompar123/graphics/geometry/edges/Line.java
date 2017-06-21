@@ -14,8 +14,8 @@ public class Line extends Edge {
 	protected Point[] init(final Point p0, final Point p1) {
 		final int deltaX = p1.getX() - p0.getX();
 		final int deltaY = p1.getY() - p0.getY();
-		final double deltaErr = Math.abs(deltaY / deltaX);
-		double error = deltaErr - 0.5;
+		final double deltaErr = (double)deltaY / deltaX;
+		double error = Math.abs(deltaErr) - 0.5;
 		ArrayList<Point> pointsList = new ArrayList<>(deltaX + 1);
 		
 		int y = p0.getY();
@@ -25,6 +25,9 @@ public class Line extends Edge {
 			if (error >= 0.5){
 				y += 1;
 				error -= 1;
+			} else if (error <= -0.5){
+				y -= 1;
+				error += 1;
 			}
 			pointsList.add(p);
 		}

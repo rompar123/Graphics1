@@ -18,6 +18,10 @@ public abstract class Edge {
 	protected abstract Point[] init(Point p1, Point p2);
 	
 	public Point[] getPoints(){ return points; }
+	/**
+	 * @return - return the base point of the edge ( relative 0,0 point of this edge )
+	 */
+	public Point getBasePoint(){ return points[0]; }
 	
 	public boolean isOnEdge(Point p){
 		if ( p.getX() <= points.length -1) { 
