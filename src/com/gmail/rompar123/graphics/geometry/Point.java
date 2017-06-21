@@ -1,4 +1,4 @@
-package com.gmail.rompar123.geometry;
+package com.gmail.rompar123.graphics.geometry;
 
 public class Point{
 

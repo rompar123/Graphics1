@@ -1,8 +1,8 @@
-package com.gmail.rompar123.geometry.edges;
+package com.gmail.rompar123.graphics.geometry.edges;
 
 import java.util.ArrayList;
 
-import com.gmail.rompar123.geometry.Point;
+import com.gmail.rompar123.graphics.geometry.Point;
 
 public class Line extends Edge {
 

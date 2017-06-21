@@ -1,6 +1,6 @@
-package com.gmail.rompar123.geometry.edges;
+package com.gmail.rompar123.graphics.geometry.edges;
 
-import com.gmail.rompar123.geometry.Point;
+import com.gmail.rompar123.graphics.geometry.Point;
 
 public abstract class Edge {
 
@@ -16,6 +16,8 @@ public abstract class Edge {
 	 * @return - an array of all the points existing on the edge
 	 */
 	protected abstract Point[] init(Point p1, Point p2);
+	
+	public Point[] getPoints(){ return points; }
 	
 	public boolean isOnEdge(Point p){
 		if ( p.getX() <= points.length -1) { 
