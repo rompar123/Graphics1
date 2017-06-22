@@ -8,7 +8,7 @@ public abstract class Edge {
 	
 	protected Edge(Point p1, Point p2){
 		Point pmin = p1.getX() < p2.getX() ? p1 : p2;
-		Point pmax = p1.getX() > p2.getX() ? p1 : p2;
+		Point pmax = p1.getX() < p2.getX() ? p2 : p1;
 		points = init(pmin, pmax);
 	}
 	
